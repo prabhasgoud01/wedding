@@ -23,7 +23,7 @@ const App = () => {
 
     const randomInRange = (min, max) => Math.random() * (max - min) + min;
 
-    const interval = setInterval(function() {
+    const interval = setInterval(function () {
       const timeLeft = animationEnd - Date.now();
 
       if (timeLeft <= 0) {
@@ -65,17 +65,17 @@ const App = () => {
     <div className="min-h-screen bg-[#fdfbf7] selection:bg-luxury-gold selection:text-white">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <motion.div 
+        <motion.div
           style={{ opacity, scale }}
           className="absolute inset-0 z-0"
         >
-          <img 
-            src="/assets/hero.png" 
-            alt="Wedding Background" 
+          <img
+            src="/assets/hero.png"
+            alt="Wedding Background"
             className="w-full h-full object-cover brightness-50"
           />
         </motion.div>
-        
+
         <div className="relative z-10 text-center px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -92,14 +92,14 @@ const App = () => {
             <p className="text-white/90 text-xl md:text-2xl font-serif-elegant tracking-widest mb-12">
               2 JULY 2026 • HYDERABAD
             </p>
-            
+
             <div className="mt-8">
               <Countdown date={WEDDING_DATE} renderer={renderer} />
             </div>
           </motion.div>
         </div>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
@@ -122,7 +122,7 @@ const App = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <motion.div 
+          <motion.div
             whileInView={{ opacity: 1, x: 0 }}
             initial={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.8 }}
@@ -130,9 +130,9 @@ const App = () => {
           >
             <div className="relative inline-block mb-6 group">
               <div className="absolute -inset-4 border-2 border-luxury-gold/30 rounded-full group-hover:scale-105 transition-transform duration-500"></div>
-              <img 
-                src="/bav.jpeg" 
-                alt="Saikiran" 
+              <img
+                src="/bav.jpeg"
+                alt="Saikiran"
                 className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-white shadow-2xl relative z-10"
               />
             </div>
@@ -143,7 +143,7 @@ const App = () => {
             </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             whileInView={{ opacity: 1, x: 0 }}
             initial={{ opacity: 0, x: 50 }}
             transition={{ duration: 0.8 }}
@@ -151,9 +151,9 @@ const App = () => {
           >
             <div className="relative inline-block mb-6 group">
               <div className="absolute -inset-4 border-2 border-luxury-gold/30 rounded-full group-hover:scale-105 transition-transform duration-500"></div>
-              <img 
-                src="/sweet.jpeg" 
-                alt="Akshitha" 
+              <img
+                src="/sweet.jpeg"
+                alt="Akshitha"
                 className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-white shadow-2xl relative z-10"
               />
             </div>
@@ -181,9 +181,9 @@ const App = () => {
           >
             <h2 className="text-4xl md:text-6xl font-playfair mb-12">The Invitation</h2>
             <div className="glass-card p-4 md:p-8 rounded-lg shadow-2xl relative group">
-              <img 
-                src="/assets/card.png" 
-                alt="Wedding Invitation Card" 
+              <img
+                src="/assets/card.png"
+                alt="Wedding Invitation Card"
                 className="w-full h-auto rounded shadow-lg group-hover:scale-[1.01] transition-transform duration-500"
               />
               <div className="absolute inset-0 border-2 border-luxury-gold/50 m-2 md:m-6 pointer-events-none"></div>
@@ -195,31 +195,40 @@ const App = () => {
         </div>
       </section>
 
-      {/* Special Invitees */}
-      <section className="py-24 px-4 bg-white">
+      {/* Formal Invitation */}
+      <section className="py-24 px-4 bg-white relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-playfair text-luxury-dark mb-16 underline decoration-luxury-gold/30 underline-offset-8">Specially Inviting People</h2>
-          
-          <div className="grid md:grid-cols-2 gap-12">
-            {[
-              { name: "Palle Srinivas", role: "Special Guest" },
-              { name: "Palle Rudra", role: "Special Guest" }
-            ].map((person, idx) => (
-              <motion.div
-                key={idx}
-                whileInView={{ opacity: 1, y: 0 }}
-                initial={{ opacity: 0, y: 30 }}
-                transition={{ delay: idx * 0.2, duration: 0.6 }}
-                className="p-8 border border-luxury-gold/20 rounded-xl hover:shadow-xl transition-shadow duration-300 bg-[#fdfbf7]"
-              >
-                <div className="w-16 h-16 bg-luxury-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Heart className="text-luxury-gold" fill="currentColor" size={24} />
-                </div>
-                <h3 className="text-2xl font-playfair text-luxury-dark mb-2">{person.name}</h3>
-                <p className="text-luxury-gold uppercase tracking-widest text-sm font-inter">{person.role}</p>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            transition={{ duration: 0.8 }}
+            className="p-12 border-2 border-luxury-gold/20 rounded-2xl bg-[#fdfbf7] relative"
+          >
+            {/* Decorative corners */}
+            <div className="absolute top-4 left-4 w-12 h-12 border-l-2 border-t-2 border-luxury-gold/40"></div>
+            <div className="absolute top-4 right-4 w-12 h-12 border-r-2 border-t-2 border-luxury-gold/40"></div>
+            <div className="absolute bottom-4 left-4 w-12 h-12 border-l-2 border-b-2 border-luxury-gold/40"></div>
+            <div className="absolute bottom-4 right-4 w-12 h-12 border-r-2 border-b-2 border-luxury-gold/40"></div>
+
+            <span className="text-luxury-gold uppercase tracking-[0.3em] text-sm font-inter mb-6 block">
+              Formal Invitation
+            </span>
+            <h2 className="text-3xl md:text-5xl font-playfair text-luxury-dark mb-8">
+              With the Divine Grace of Almighty
+            </h2>
+            <p className="text-gray-600 font-serif-elegant italic text-xl md:text-2xl leading-relaxed mb-12">
+              <span className="text-luxury-dark font-bold not-italic">Palle Srinivas & Palle Rudra | Uduthala Narshima & Uduthala Sathamma</span><br />
+              cordially invite you to join the wedding ceremony of their beloved children
+            </p>
+            <div className="flex items-center justify-center gap-8 mb-12">
+              <h3 className="text-2xl md:text-4xl font-playfair text-luxury-gold">Saikiran</h3>
+              <Heart className="text-luxury-gold fill-luxury-gold" size={24} />
+              <h3 className="text-2xl md:text-4xl font-playfair text-luxury-gold">Akshitha</h3>
+            </div>
+            <p className="text-gray-600 font-inter text-lg leading-relaxed max-w-2xl mx-auto">
+              Your esteemed presence and heartfelt blessings are requested as they embark on this sacred journey of love and togetherness. Let us celebrate this beautiful union together.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -241,21 +250,21 @@ const App = () => {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Google Map */}
             <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/10 h-[400px]">
-              <iframe 
+              <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3809.523423736735!2d78.7293403114948!3d17.156288699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb061bf125c74b%3A0xb312f5bf0bc14924!2sDandatikaru%20Sarpanje%20Garden%20%26%20Function%20Hall!5e0!3m2!1sen!2sin!4v1713950000000!5m2!1sen!2sin"
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen="" 
-                loading="lazy" 
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
               ></iframe>
             </div>
 
             {/* QR Code */}
             <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 flex flex-col items-center justify-center text-center">
               <div className="bg-white p-4 rounded-xl mb-6 shadow-xl">
-                <QRCode 
-                  value="https://www.google.com/maps/place/Dandatikaru+Sarpanje+Garden+%26+Function+Hall/@17.1562887,78.731529,17z" 
+                <QRCode
+                  value="https://www.google.com/maps/place/Dandatikaru+Sarpanje+Garden+%26+Function+Hall/@17.1562887,78.731529,17z"
                   size={200}
                   fgColor="#000000"
                 />
@@ -266,9 +275,9 @@ const App = () => {
               <p className="text-gray-600 font-inter mb-8 max-w-sm">
                 Scan this QR code with your mobile camera to open the venue location directly in Google Maps.
               </p>
-              <a 
-                href={mapUrl} 
-                target="_blank" 
+              <a
+                href={mapUrl}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-luxury-gold text-white px-8 py-3 rounded-full font-inter hover:bg-luxury-gold/90 transition-colors shadow-lg"
               >
@@ -298,7 +307,7 @@ const App = () => {
           <p className="text-white/40 text-sm font-inter mt-2 uppercase tracking-[0.2em]">
             Developed by Palle Prabhas
           </p>
-          <a 
+          <a
             href="mailto:prabhaspalle1131@gmail.com"
             className="inline-flex items-center gap-2 text-luxury-gold/80 hover:text-luxury-gold transition-colors text-sm font-inter mt-4"
           >
